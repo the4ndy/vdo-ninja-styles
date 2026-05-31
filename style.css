@@ -1,54 +1,69 @@
-/* ============================================================
-   VDO.Ninja Scene Styler
-   Mouse Memoirs font + per-feed color glow borders & labels
-   Target class confirmed from official docs: .tile / .video-label
-   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
 
-/* ── Color palette – 8 slots, cycles automatically ── */
 :root {
-  --c1: #FF6B6B;   /* coral red    */
-  --c2: #FFD93D;   /* golden yell  */
-  --c3: #6BCB77;   /* lime green   */
-  --c4: #4D96FF;   /* sky blue     */
-  --c5: #C77DFF;   /* lavender     */
-  --c6: #FF9A3C;   /* tangerine    */
-  --c7: #00D4FF;   /* cyan         */
-  --c8: #FF6EB4;   /* hot pink     */
+  --c1:#FF6B6B; --c2:#FFD93D; --c3:#6BCB77; --c4:#4D96FF;
+  --c5:#C77DFF; --c6:#FF9A3C; --c7:#00D4FF; --c8:#FF6EB4;
+  --gap: 10px;
 }
 
-/* ── Keep background transparent for chroma key / OBS ── */
-body {
-  background: transparent !important;
-}
+body { background: transparent !important; }
 
-/* ── Base tile reset – rounded corners, no overflow bleed ── */
-.tile {
+.container_holder_video .holder {
+  position: absolute !important;
+  top: var(--gap) !important;
+  left: var(--gap) !important;
+  width: calc(100% - calc(var(--gap) * 2)) !important;
+  height: calc(100% - calc(var(--gap) * 2)) !important;
   border-radius: 12px !important;
-  overflow: visible !important;   /* must be visible for box-shadow glow to show */
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 
-/* ── Glow borders per slot ── */
-.tile:nth-child(8n+1) { box-shadow: 0 0 0 4px var(--c1), 0 0 20px 6px color-mix(in srgb, var(--c1) 70%, transparent) !important; }
-.tile:nth-child(8n+2) { box-shadow: 0 0 0 4px var(--c2), 0 0 20px 6px color-mix(in srgb, var(--c2) 70%, transparent) !important; }
-.tile:nth-child(8n+3) { box-shadow: 0 0 0 4px var(--c3), 0 0 20px 6px color-mix(in srgb, var(--c3) 70%, transparent) !important; }
-.tile:nth-child(8n+4) { box-shadow: 0 0 0 4px var(--c4), 0 0 20px 6px color-mix(in srgb, var(--c4) 70%, transparent) !important; }
-.tile:nth-child(8n+5) { box-shadow: 0 0 0 4px var(--c5), 0 0 20px 6px color-mix(in srgb, var(--c5) 70%, transparent) !important; }
-.tile:nth-child(8n+6) { box-shadow: 0 0 0 4px var(--c6), 0 0 20px 6px color-mix(in srgb, var(--c6) 70%, transparent) !important; }
-.tile:nth-child(8n+7) { box-shadow: 0 0 0 4px var(--c7), 0 0 20px 6px color-mix(in srgb, var(--c7) 70%, transparent) !important; }
-.tile:nth-child(8n+8) { box-shadow: 0 0 0 4px var(--c8), 0 0 20px 6px color-mix(in srgb, var(--c8) 70%, transparent) !important; }
+.container_holder_video .holder video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+}
 
-/* ── Base label style – Mouse Memoirs font ── */
+.container_holder_video:nth-child(8n+1) .holder { border: 4px solid var(--c1) !important; }
+.container_holder_video:nth-child(8n+2) .holder { border: 4px solid var(--c2) !important; }
+.container_holder_video:nth-child(8n+3) .holder { border: 4px solid var(--c3) !important; }
+.container_holder_video:nth-child(8n+4) .holder { border: 4px solid var(--c4) !important; }
+.container_holder_video:nth-child(8n+5) .holder { border: 4px solid var(--c5) !important; }
+.container_holder_video:nth-child(8n+6) .holder { border: 4px solid var(--c6) !important; }
+.container_holder_video:nth-child(8n+7) .holder { border: 4px solid var(--c7) !important; }
+.container_holder_video:nth-child(8n+8) .holder { border: 4px solid var(--c8) !important; }
+
+@keyframes glow1 { 0%,100%{ box-shadow:0 0 10px 3px var(--c1); } 50%{ box-shadow:0 0 28px 10px var(--c1); } }
+@keyframes glow2 { 0%,100%{ box-shadow:0 0 10px 3px var(--c2); } 50%{ box-shadow:0 0 28px 10px var(--c2); } }
+@keyframes glow3 { 0%,100%{ box-shadow:0 0 10px 3px var(--c3); } 50%{ box-shadow:0 0 28px 10px var(--c3); } }
+@keyframes glow4 { 0%,100%{ box-shadow:0 0 10px 3px var(--c4); } 50%{ box-shadow:0 0 28px 10px var(--c4); } }
+@keyframes glow5 { 0%,100%{ box-shadow:0 0 10px 3px var(--c5); } 50%{ box-shadow:0 0 28px 10px var(--c5); } }
+@keyframes glow6 { 0%,100%{ box-shadow:0 0 10px 3px var(--c6); } 50%{ box-shadow:0 0 28px 10px var(--c6); } }
+@keyframes glow7 { 0%,100%{ box-shadow:0 0 10px 3px var(--c7); } 50%{ box-shadow:0 0 28px 10px var(--c7); } }
+@keyframes glow8 { 0%,100%{ box-shadow:0 0 10px 3px var(--c8); } 50%{ box-shadow:0 0 28px 10px var(--c8); } }
+
+.container_holder_video:nth-child(8n+1) .holder { animation: glow1 3.0s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+2) .holder { animation: glow2 3.4s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+3) .holder { animation: glow3 2.8s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+4) .holder { animation: glow4 3.2s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+5) .holder { animation: glow5 3.6s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+6) .holder { animation: glow6 2.6s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+7) .holder { animation: glow7 3.8s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+8) .holder { animation: glow8 3.1s ease-in-out infinite !important; }
+
 .video-label {
-  font-family: 'Mouse Memoirs', 'Impact', sans-serif !important;
+  font-family: 'Mouse Memoirs', Impact, sans-serif !important;
   font-size: 1.4em !important;
   letter-spacing: 0.07em !important;
   text-transform: uppercase !important;
   padding: 4px 14px 3px !important;
   border-radius: 0 0 8px 8px !important;
-  background: rgba(0, 0, 0, 0.65) !important;
-  bottom: 0 !important;
+  background: rgba(0,0,0,0.65) !important;
+  bottom: var(--gap) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   white-space: nowrap !important;
@@ -56,31 +71,11 @@ body {
   pointer-events: none !important;
 }
 
-/* ── Label colors match border per slot ── */
-.tile:nth-child(8n+1) .video-label { color: var(--c1) !important; }
-.tile:nth-child(8n+2) .video-label { color: var(--c2) !important; }
-.tile:nth-child(8n+3) .video-label { color: var(--c3) !important; }
-.tile:nth-child(8n+4) .video-label { color: var(--c4) !important; }
-.tile:nth-child(8n+5) .video-label { color: var(--c5) !important; }
-.tile:nth-child(8n+6) .video-label { color: var(--c6) !important; }
-.tile:nth-child(8n+7) .video-label { color: var(--c7) !important; }
-.tile:nth-child(8n+8) .video-label { color: var(--c8) !important; }
-
-/* ── Gentle pulse animations – each at a different speed so they feel alive ── */
-@keyframes glow1 { 0%,100%{ box-shadow:0 0 0 4px var(--c1),0 0 14px 4px color-mix(in srgb,var(--c1) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c1),0 0 28px 10px color-mix(in srgb,var(--c1) 80%,transparent) } }
-@keyframes glow2 { 0%,100%{ box-shadow:0 0 0 4px var(--c2),0 0 14px 4px color-mix(in srgb,var(--c2) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c2),0 0 28px 10px color-mix(in srgb,var(--c2) 80%,transparent) } }
-@keyframes glow3 { 0%,100%{ box-shadow:0 0 0 4px var(--c3),0 0 14px 4px color-mix(in srgb,var(--c3) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c3),0 0 28px 10px color-mix(in srgb,var(--c3) 80%,transparent) } }
-@keyframes glow4 { 0%,100%{ box-shadow:0 0 0 4px var(--c4),0 0 14px 4px color-mix(in srgb,var(--c4) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c4),0 0 28px 10px color-mix(in srgb,var(--c4) 80%,transparent) } }
-@keyframes glow5 { 0%,100%{ box-shadow:0 0 0 4px var(--c5),0 0 14px 4px color-mix(in srgb,var(--c5) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c5),0 0 28px 10px color-mix(in srgb,var(--c5) 80%,transparent) } }
-@keyframes glow6 { 0%,100%{ box-shadow:0 0 0 4px var(--c6),0 0 14px 4px color-mix(in srgb,var(--c6) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c6),0 0 28px 10px color-mix(in srgb,var(--c6) 80%,transparent) } }
-@keyframes glow7 { 0%,100%{ box-shadow:0 0 0 4px var(--c7),0 0 14px 4px color-mix(in srgb,var(--c7) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c7),0 0 28px 10px color-mix(in srgb,var(--c7) 80%,transparent) } }
-@keyframes glow8 { 0%,100%{ box-shadow:0 0 0 4px var(--c8),0 0 14px 4px color-mix(in srgb,var(--c8) 50%,transparent) } 50%{ box-shadow:0 0 0 4px var(--c8),0 0 28px 10px color-mix(in srgb,var(--c8) 80%,transparent) } }
-
-.tile:nth-child(8n+1) { animation: glow1 3.0s ease-in-out infinite !important; }
-.tile:nth-child(8n+2) { animation: glow2 3.4s ease-in-out infinite !important; }
-.tile:nth-child(8n+3) { animation: glow3 2.8s ease-in-out infinite !important; }
-.tile:nth-child(8n+4) { animation: glow4 3.2s ease-in-out infinite !important; }
-.tile:nth-child(8n+5) { animation: glow5 3.6s ease-in-out infinite !important; }
-.tile:nth-child(8n+6) { animation: glow6 2.6s ease-in-out infinite !important; }
-.tile:nth-child(8n+7) { animation: glow7 3.8s ease-in-out infinite !important; }
-.tile:nth-child(8n+8) { animation: glow8 3.1s ease-in-out infinite !important; }
+.container_holder_video:nth-child(8n+1) .video-label { color: var(--c1) !important; }
+.container_holder_video:nth-child(8n+2) .video-label { color: var(--c2) !important; }
+.container_holder_video:nth-child(8n+3) .video-label { color: var(--c3) !important; }
+.container_holder_video:nth-child(8n+4) .video-label { color: var(--c4) !important; }
+.container_holder_video:nth-child(8n+5) .video-label { color: var(--c5) !important; }
+.container_holder_video:nth-child(8n+6) .video-label { color: var(--c6) !important; }
+.container_holder_video:nth-child(8n+7) .video-label { color: var(--c7) !important; }
+.container_holder_video:nth-child(8n+8) .video-label { color: var(--c8) !important; }
