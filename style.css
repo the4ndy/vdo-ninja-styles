@@ -1,0 +1,86 @@
+/* ============================================================
+   VDO.Ninja Scene Styler
+   Mouse Memoirs font + per-feed color borders & labels
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+
+/* ── Color palette – one per slot (cycles after 8) ── */
+:root {
+  --c1: #FF6B6B;   /* coral red    */
+  --c2: #FFD93D;   /* golden yell  */
+  --c3: #6BCB77;   /* lime green   */
+  --c4: #4D96FF;   /* sky blue     */
+  --c5: #C77DFF;   /* lavender     */
+  --c6: #FF9A3C;   /* tangerine    */
+  --c7: #00D4FF;   /* cyan         */
+  --c8: #FF6EB4;   /* hot pink     */
+}
+
+/* ── Remove default VDO background so chroma key still works ── */
+body {
+  background: transparent !important;
+}
+
+/* ── Each video tile wrapper ── */
+.video-wrapper {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  transition: box-shadow 0.4s ease !important;
+}
+
+/* ── Glow borders per slot ── */
+.video-wrapper:nth-child(8n+1) { box-shadow: 0 0 0 4px var(--c1), 0 0 22px 4px var(--c1) !important; }
+.video-wrapper:nth-child(8n+2) { box-shadow: 0 0 0 4px var(--c2), 0 0 22px 4px var(--c2) !important; }
+.video-wrapper:nth-child(8n+3) { box-shadow: 0 0 0 4px var(--c3), 0 0 22px 4px var(--c3) !important; }
+.video-wrapper:nth-child(8n+4) { box-shadow: 0 0 0 4px var(--c4), 0 0 22px 4px var(--c4) !important; }
+.video-wrapper:nth-child(8n+5) { box-shadow: 0 0 0 4px var(--c5), 0 0 22px 4px var(--c5) !important; }
+.video-wrapper:nth-child(8n+6) { box-shadow: 0 0 0 4px var(--c6), 0 0 22px 4px var(--c6) !important; }
+.video-wrapper:nth-child(8n+7) { box-shadow: 0 0 0 4px var(--c7), 0 0 22px 4px var(--c7) !important; }
+.video-wrapper:nth-child(8n+8) { box-shadow: 0 0 0 4px var(--c8), 0 0 22px 4px var(--c8) !important; }
+
+/* ── Base label style ── */
+.video-label {
+  font-family: 'Mouse Memoirs', 'Impact', sans-serif !important;
+  font-size: 1.35em !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  padding: 4px 14px 3px !important;
+  border-radius: 0 0 8px 8px !important;
+  background: rgba(0, 0, 0, 0.62) !important;
+  bottom: 0 !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  white-space: nowrap !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.9) !important;
+  pointer-events: none !important;
+}
+
+/* ── Label colors match border colors per slot ── */
+.video-wrapper:nth-child(8n+1) .video-label { color: var(--c1) !important; }
+.video-wrapper:nth-child(8n+2) .video-label { color: var(--c2) !important; }
+.video-wrapper:nth-child(8n+3) .video-label { color: var(--c3) !important; }
+.video-wrapper:nth-child(8n+4) .video-label { color: var(--c4) !important; }
+.video-wrapper:nth-child(8n+5) .video-label { color: var(--c5) !important; }
+.video-wrapper:nth-child(8n+6) .video-label { color: var(--c6) !important; }
+.video-wrapper:nth-child(8n+7) .video-label { color: var(--c7) !important; }
+.video-wrapper:nth-child(8n+8) .video-label { color: var(--c8) !important; }
+
+/* ── Subtle pulse animation on each border so it feels alive ── */
+@keyframes borderPulse1 { 0%,100%{box-shadow:0 0 0 4px var(--c1),0 0 18px 4px var(--c1)} 50%{box-shadow:0 0 0 4px var(--c1),0 0 32px 10px var(--c1)} }
+@keyframes borderPulse2 { 0%,100%{box-shadow:0 0 0 4px var(--c2),0 0 18px 4px var(--c2)} 50%{box-shadow:0 0 0 4px var(--c2),0 0 32px 10px var(--c2)} }
+@keyframes borderPulse3 { 0%,100%{box-shadow:0 0 0 4px var(--c3),0 0 18px 4px var(--c3)} 50%{box-shadow:0 0 0 4px var(--c3),0 0 32px 10px var(--c3)} }
+@keyframes borderPulse4 { 0%,100%{box-shadow:0 0 0 4px var(--c4),0 0 18px 4px var(--c4)} 50%{box-shadow:0 0 0 4px var(--c4),0 0 32px 10px var(--c4)} }
+@keyframes borderPulse5 { 0%,100%{box-shadow:0 0 0 4px var(--c5),0 0 18px 4px var(--c5)} 50%{box-shadow:0 0 0 4px var(--c5),0 0 32px 10px var(--c5)} }
+@keyframes borderPulse6 { 0%,100%{box-shadow:0 0 0 4px var(--c6),0 0 18px 4px var(--c6)} 50%{box-shadow:0 0 0 4px var(--c6),0 0 32px 10px var(--c6)} }
+@keyframes borderPulse7 { 0%,100%{box-shadow:0 0 0 4px var(--c7),0 0 18px 4px var(--c7)} 50%{box-shadow:0 0 0 4px var(--c7),0 0 32px 10px var(--c7)} }
+@keyframes borderPulse8 { 0%,100%{box-shadow:0 0 0 4px var(--c8),0 0 18px 4px var(--c8)} 50%{box-shadow:0 0 0 4px var(--c8),0 0 32px 10px var(--c8)} }
+
+.video-wrapper:nth-child(8n+1) { animation: borderPulse1 3.0s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+2) { animation: borderPulse2 3.4s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+3) { animation: borderPulse3 2.8s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+4) { animation: borderPulse4 3.2s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+5) { animation: borderPulse5 3.6s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+6) { animation: borderPulse6 2.6s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+7) { animation: borderPulse7 3.8s ease-in-out infinite !important; }
+.video-wrapper:nth-child(8n+8) { animation: borderPulse8 3.1s ease-in-out infinite !important; }
