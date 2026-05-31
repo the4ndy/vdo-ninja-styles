@@ -4,7 +4,7 @@
 :root {
   --c1:#FF6B6B; --c2:#FFD93D; --c3:#6BCB77; --c4:#4D96FF;
   --c5:#C77DFF; --c6:#FF9A3C; --c7:#00D4FF; --c8:#FF6EB4;
-  --gap: 10px;
+  --gap: 25px;
 }
 
 body { background: transparent !important; }
