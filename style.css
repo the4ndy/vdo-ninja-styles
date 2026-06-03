@@ -98,6 +98,7 @@ body { background: transparent !important; }
   z-index: 100 !important;
   pointer-events: none !important;
   box-sizing: border-box !important;
+  transition: opacity 0.3s ease-in-out !important;
 }
 
 /* These ensure the circle border and text match your glowing border colors */
