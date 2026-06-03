@@ -79,3 +79,25 @@ body { background: transparent !important; }
 .container_holder_video:nth-child(8n+6) .video-label { color: var(--c6) !important; }
 .container_holder_video:nth-child(8n+7) .video-label { color: var(--c7) !important; }
 .container_holder_video:nth-child(8n+8) .video-label { color: var(--c8) !important; }
+
+.vdo-custom-score {
+  position: absolute !important;
+  bottom: calc(var(--gap) + 40px) !important; /* Floats just above the name label */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  font-family: 'Mouse Memoirs', Impact, sans-serif !important;
+  font-size: 3.5em !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 0 15px currentColor !important;
+  z-index: 100 !important;
+  pointer-events: none !important;
+}
+
+/* Match the text color to your rotating border colors */
+.container_holder_video:nth-child(8n+1) .vdo-custom-score { color: var(--c1) !important; }
+.container_holder_video:nth-child(8n+2) .vdo-custom-score { color: var(--c2) !important; }
+.container_holder_video:nth-child(8n+3) .vdo-custom-score { color: var(--c3) !important; }
+.container_holder_video:nth-child(8n+4) .vdo-custom-score { color: var(--c4) !important; }
+.container_holder_video:nth-child(8n+5) .vdo-custom-score { color: var(--c5) !important; }
+.container_holder_video:nth-child(8n+6) .vdo-custom-score { color: var(--c6) !important; }
+.container_holder_video:nth-child(8n+7) .vdo-custom-score { color: var(--c7) !important; }
+.container_holder_video:nth-child(8n+8) .vdo-custom-score { color: var(--c8) !important; }
