@@ -80,6 +80,12 @@ body { background: transparent !important; }
 .container_holder_video:nth-child(8n+7) .video-label { color: var(--c7) !important; }
 .container_holder_video:nth-child(8n+8) .video-label { color: var(--c8) !important; }
 
+/* Add this to handle the fading/hiding */
+body.hide-vdo-scores .vdo-custom-score {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 .vdo-custom-score {
   position: absolute !important;
   bottom: 20px !important;
@@ -98,7 +104,7 @@ body { background: transparent !important; }
   z-index: 100 !important;
   pointer-events: none !important;
   box-sizing: border-box !important;
-  transition: opacity 0.3s ease-in-out !important;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out !important;
 }
 
 /* These ensure the circle border and text match your glowing border colors */
@@ -110,3 +116,5 @@ body { background: transparent !important; }
 .container_holder_video:nth-child(8n+6) .vdo-custom-score { color: var(--c6) !important; }
 .container_holder_video:nth-child(8n+7) .vdo-custom-score { color: var(--c7) !important; }
 .container_holder_video:nth-child(8n+8) .vdo-custom-score { color: var(--c8) !important; }
+
+
