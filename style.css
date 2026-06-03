@@ -82,17 +82,25 @@ body { background: transparent !important; }
 
 .vdo-custom-score {
   position: absolute !important;
-  bottom: calc(var(--gap) + 40px) !important; /* Floats just above the name label */
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 3px solid currentColor !important;
+  border-radius: 50% !important; /* Makes it a circle */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   font-family: 'Mouse Memoirs', Impact, sans-serif !important;
-  font-size: 3.5em !important;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.9), 0 0 15px currentColor !important;
+  font-size: 2.5em !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.9) !important;
   z-index: 100 !important;
   pointer-events: none !important;
+  box-sizing: border-box !important;
 }
 
-/* Match the text color to your rotating border colors */
+/* These ensure the circle border and text match your glowing border colors */
 .container_holder_video:nth-child(8n+1) .vdo-custom-score { color: var(--c1) !important; }
 .container_holder_video:nth-child(8n+2) .vdo-custom-score { color: var(--c2) !important; }
 .container_holder_video:nth-child(8n+3) .vdo-custom-score { color: var(--c3) !important; }
